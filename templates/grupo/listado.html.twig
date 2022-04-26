@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %} Grupos {{ parent() }} {% endblock %}
+
+{% block cuerpo %}
+    <h1>Listado de Grupos</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for grupo in grupos %}
+            <tr>
+                <td>{{ grupo.id }}</td>
+                <td>{{ grupo.nombre }}</td>
+            </tr>
+        {% else %}
+            <h2>No hay Grupos</h2>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
