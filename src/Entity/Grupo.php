@@ -33,6 +33,10 @@ class Grupo
      */
     private $requisitos;
 
+    public function __toString() {
+        return $this->getNombre();
+    }
+
     /**
      * @return int
      */

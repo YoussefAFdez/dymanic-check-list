@@ -4,11 +4,13 @@
 
 {% block cuerpo %}
     <h1>Listado de Grupos</h1>
+    <a href="{{ path('grupo_nuevo') }}">Nuevo Grupo</a>
     <table>
         <thead>
         <tr>
             <th>ID</th>
             <th>Nombre</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -16,6 +18,9 @@
             <tr>
                 <td>{{ grupo.id }}</td>
                 <td>{{ grupo.nombre }}</td>
+                <td>
+                    <a href="{{ path('grupo_modificar', {'id': grupo.id}) }}">Modificar</a>
+                </td>
             </tr>
         {% else %}
             <h2>No hay Grupos</h2>

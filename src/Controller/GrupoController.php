@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Grupo;
+use App\Form\GrupoType;
 use App\Repository\GrupoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -24,7 +25,7 @@ class GrupoController extends AbstractController
     }
 
     /**
-     * @Route("grupo/nuevo", name="grupo_nuevo")
+     * @Route("/grupo/nuevo", name="grupo_nuevo")
      */
     public function nuevo(Request $request, GrupoRepository $grupoRepository) : Response {
         $grupo = $grupoRepository->nuevo();
@@ -34,7 +35,7 @@ class GrupoController extends AbstractController
     /**
      * @Route("/grupo/modificar/{id}", name="grupo_modificar")
      */
-    private function modificar(Request $request, GrupoRepository $grupoRepository, Grupo $grupo)
+    public function modificar(Request $request, GrupoRepository $grupoRepository, Grupo $grupo)
     {
         $form = $this->createForm(GrupoType::class, $grupo);
         $form->handleRequest($request);
@@ -57,7 +58,7 @@ class GrupoController extends AbstractController
     /**
      * @Route("/grupo/eliminar/{id}", name="grupo_eliminar")
      */
-    private function eliminar(Request $request, GrupoRepository $grupoRepository, Grupo $grupo) : Response {
+    public function eliminar(Request $request, GrupoRepository $grupoRepository, Grupo $grupo) : Response {
         if ($request->get('confirmar', false)) {
             try {
                 $grupoRepository->eliminar($grupo);
