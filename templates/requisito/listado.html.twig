@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %} Requisitos {{ parent() }} {% endblock %}
+
+{% block cuerpo %}
+    <h1>Listado de Requisitos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descripcion</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for requisito in requisitos %}
+                <tr>
+                    <td>{{ requisito.id }}</td>
+                    <td>{{ requisito.descripcion }}</td>
+                </tr>
+            {% else %}
+                <h2>No hay Requisitos</h2>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
