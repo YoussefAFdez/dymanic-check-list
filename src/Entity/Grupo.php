@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,6 +25,13 @@ class Grupo
      * @ORM\Column(type="string")
      */
     private $nombre;
+
+    /**
+     * @var Requisito|Collection
+     * @ORM\OneToMany(targetEntity="Requisito", mappedBy="grupo")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $requisitos;
 
     /**
      * @return int
@@ -50,7 +58,5 @@ class Grupo
         $this->nombre = $nombre;
         return $this;
     }
-
-
 
 }

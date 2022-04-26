@@ -26,6 +26,13 @@ class Requisito
     private $descripcion;
 
     /**
+     * @var Grupo
+     * @ORM\ManyToOne(targetEntity="Grupo", inversedBy="requisitos")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $grupo;
+
+    /**
      * @return int
      */
     public function getId(): ?int
