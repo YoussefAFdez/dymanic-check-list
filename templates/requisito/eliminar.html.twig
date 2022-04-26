@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}Eliminar Requisito - {{ parent() }}{% endblock %}
+
+{% block cuerpo %}
+    <h1>Eliminación de grupo</h1>
+    <h2>Estás a punto de eliminar el grupo "{{ requisito }}". ¿Estás seguro de ello? Esta acción no se puede deshacer.</h2>
+    <form method="post">
+        <button type="submit" name="confirmar" value="si" class="btn btn-danger">Borrar permanentemente</button>
+        <a href="{{ path('requisito_listado') }}" class="btn btn-primary">Volver al listado</a>
+    </form>
+{% endblock %}
+
+
+

@@ -20,8 +20,8 @@ class Requisito
     private $id;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
+     * @var string
+     * @ORM\Column(type="string")
      */
     private $descripcion;
 
@@ -32,6 +32,10 @@ class Requisito
      */
     private $grupo;
 
+    public function __toString() {
+        return $this->getDescripcion();
+    }
+
     /**
      * @return int
      */
@@ -41,18 +45,18 @@ class Requisito
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getDescripcion(): ?int
+    public function getDescripcion(): ?string
     {
         return $this->descripcion;
     }
 
     /**
-     * @param int $descripcion
+     * @param string $descripcion
      * @return Requisito
      */
-    public function setDescripcion(int $descripcion): Requisito
+    public function setDescripcion(string $descripcion): Requisito
     {
         $this->descripcion = $descripcion;
         return $this;

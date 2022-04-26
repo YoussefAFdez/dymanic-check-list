@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}
+    {% if requisito.id %}Modificar{% else %}Nuevo{% endif %} Requisito - {{ parent() }}
+{% endblock %}
+
+{% block cuerpo %}
+
+    {% if requisito.id %}
+        <h1>Modificar Requisito</h1>
+    {% else %}
+        <h1>Nuevo Requisito</h1>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-success">Guardar requisito</button>
+    <a class="btn btn-primary" href="{{ path('requisito_listado') }}">Volver al listado</a>
+    {% if requisito.id %}
+        <a class="btn btn-danger" href="{{ path('requisito_eliminar', {'id': requisito.id}) }}">Eliminar</a>
+    {% endif %}
+
+{% endblock %}
+
+
+
