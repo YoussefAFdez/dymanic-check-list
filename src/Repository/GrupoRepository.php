@@ -19,4 +19,23 @@ class GrupoRepository extends ServiceEntityRepository
             ->createQuery("SELECT g FROM App\Entity\Grupo g")
             ->getResult();
     }
+
+    public function nuevo()
+    {
+        $grupo = new Grupo();
+        $this->getEntityManager()->persist($grupo);
+
+        return $grupo;
+    }
+
+    public function guardar()
+    {
+        $this->getEntityManager()->flush();
+    }
+
+    public function eliminar(Grupo $grupo)
+    {
+        $this->getEntityManager()->remove($grupo);
+        $this->guardar();
+    }
 }

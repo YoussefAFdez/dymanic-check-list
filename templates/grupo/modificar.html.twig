@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block titulo %}
+    {% if grupo.id %}Modificar{% else %}Nuevo{% endif %} Grupo - {{ parent() }}
+{% endblock %}
+
+{% block cuerpo %}
+
+    {% if grupo.id %}
+        <h1>Modificar Grupo</h1>
+    {% else %}
+        <h1>Nuevo Grupo</h1>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-success">Guardar grupo</button>
+    <a class="btn btn-primary" href="{{ path('grupo_listado') }}">Volver al listado</a>
+    {% if grupo.id %}
+        <a class="btn btn-danger" href="{{ path('grupo_eliminar', {'id': grupo.id}) }}">Eliminar</a>
+    {% endif %}
+
+{% endblock %}
+
+
+
