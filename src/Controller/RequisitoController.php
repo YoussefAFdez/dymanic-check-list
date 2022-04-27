@@ -14,7 +14,7 @@ class RequisitoController extends AbstractController
 {
 
     /**
-     * @Route("/requisitos", name="requisito_listado")
+     * @Route("/requisito", name="requisito_listado")
      */
     public function listado(RequisitoRepository $requisitoRepository) : Response {
         $requisitos = $requisitoRepository->listar();

@@ -62,4 +62,22 @@ class Requisito
         return $this;
     }
 
+    /**
+     * @return Grupo
+     */
+    public function getGrupo(): ?Grupo
+    {
+        return $this->grupo;
+    }
+
+    /**
+     * @param Grupo $grupo
+     * @return Requisito
+     */
+    public function setGrupo(Grupo $grupo): Requisito
+    {
+        $this->grupo = $grupo;
+        return $this;
+    }
+
 }

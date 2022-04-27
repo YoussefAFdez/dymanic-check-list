@@ -4,11 +4,14 @@
 
 {% block cuerpo %}
     <h1>Listado de Requisitos</h1>
+    <a href="{{ path('requisito_nuevo') }}">Nuevo Requisito</a>
     <table>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Descripcion</th>
+                <th>Grupo</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -16,6 +19,10 @@
                 <tr>
                     <td>{{ requisito.id }}</td>
                     <td>{{ requisito.descripcion }}</td>
+                    <td>{{ requisito.grupo }}</td>
+                    <td>
+                        <a href="{{ path('requisito_modificar', {'id': requisito.id}) }}">Modificar</a>
+                    </td>
                 </tr>
             {% else %}
                 <h2>No hay Requisitos</h2>
